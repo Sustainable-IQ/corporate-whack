@@ -126,3 +126,4 @@ MIT License - do whatever you want with it.
 Created by Claude & Luc for the [lucandthemachine.com](https://lucandthemachine.com) project.
 
 *"Where Fire Walks Like Thought"*
+
