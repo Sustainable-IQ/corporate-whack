@@ -364,22 +364,42 @@ class CorporateWhack {
         });
 
         // Start button
-        document.getElementById('start-btn').addEventListener('click', () => {
+        const startBtn = document.getElementById('start-btn');
+        startBtn.addEventListener('click', () => {
+            this.startGame();
+        });
+        startBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
             this.startGame();
         });
 
         // Continue button (after level up)
-        document.getElementById('continue-btn').addEventListener('click', () => {
+        const continueBtn = document.getElementById('continue-btn');
+        continueBtn.addEventListener('click', () => {
+            this.continueGame();
+        });
+        continueBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
             this.continueGame();
         });
 
         // Restart button
-        document.getElementById('restart-btn').addEventListener('click', () => {
+        const restartBtn = document.getElementById('restart-btn');
+        restartBtn.addEventListener('click', () => {
+            this.restartGame();
+        });
+        restartBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
             this.restartGame();
         });
 
         // Replay button (after victory)
-        document.getElementById('replay-btn').addEventListener('click', () => {
+        const replayBtn = document.getElementById('replay-btn');
+        replayBtn.addEventListener('click', () => {
+            this.restartGame();
+        });
+        replayBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
             this.restartGame();
         });
 
