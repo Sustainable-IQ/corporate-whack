@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Whack - The Office Survival Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Three.js canvas renders here -->
+    </div>
+    
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+        <div id="hud">
+            <div id="level-display">
+                <span class="label">POSITION:</span>
+                <span id="level-name">Junior Staff</span>
+            </div>
+            <div id="score-display">
+                <span class="label">PROBLEMS SOLVED:</span>
+                <span id="score">0</span> / <span id="target">10</span>
+            </div>
+            <div id="timer-display">
+                <span class="label">TIME:</span>
+                <span id="timer">60</span>s
+            </div>
+            <div id="strikes-display">
+                <span class="label">HR WARNINGS:</span>
+                <span id="strikes">●●●●●</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+        <div class="screen-content">
+            <h1>CORPORATE WHACK</h1>
+            <div class="subtitle">The Office Survival Game</div>
+            <div class="cabinet-art">
+                <pre>
+    ╔═══════════════════════════════╗
+    ║   ☕ SYNERGY  ║  TEAMWORK 📊  ║
+    ║═══════════════════════════════║
+    ║   ○     ○     ○   ║
+    ║                               ║
+    ║   ○     ○     ○   ║
+    ║                               ║
+    ║   ○     ○     ○   ║
+    ╚═══════════════════════════════╝
+                </pre>
+            </div>
+            <p class="instructions">
+                <strong>WHACK</strong> the problems: emails, bugs, conflicts<br>
+                <strong>AVOID</strong> the culture: team building, mandatory fun<br><br>
+                <em>Miss too many problems? Performance review.</em><br>
+                <em>Hit culture items? You're not a team player.</em>
+            </p>
+            <button id="start-btn" class="arcade-btn">INSERT COIN TO START</button>
+        </div>
+    </div>
+
+    <!-- Level Up Screen -->
+    <div id="levelup-screen" class="screen hidden">
+        <div class="screen-content">
+            <h2>🎉 PROMOTED! 🎉</h2>
+            <p id="promotion-text">You've been promoted to Senior Staff!</p>
+            <p class="promotion-warning">Your workload has increased.<br>Good luck.</p>
+            <button id="continue-btn" class="arcade-btn">ACCEPT PROMOTION</button>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="screen hidden">
+        <div class="screen-content">
+            <h2 id="gameover-title">GAME OVER</h2>
+            <p id="gameover-text">You've been let go.</p>
+            <div id="final-stats"></div>
+            <button id="restart-btn" class="arcade-btn">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- Win Screen -->
+    <div id="win-screen" class="screen hidden">
+        <div class="screen-content">
+            <h2>🏆 CONGRATULATIONS 🏆</h2>
+            <h3>You've reached CEO and retired!</h3>
+            <p class="retirement-text">
+                After years of whacking problems and dodging culture traps,<br>
+                you've made it to the top and cashed out.<br><br>
+                <em>Was it worth it?</em>
+            </p>
+            <div id="win-stats"></div>
+            <button id="replay-btn" class="arcade-btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- Screen shake overlay -->
+    <div id="shake-overlay"></div>
+    
+    <!-- Hit feedback -->
+    <div id="hit-feedback" class="hidden"></div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
