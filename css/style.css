@@ -411,3 +411,30 @@ body {
         padding: 15px 30px;
     }
 }
+
+/* Touch device support */
+@media (pointer: coarse) {
+    body {
+        cursor: default;
+    }
+    
+    .mallet-cursor {
+        pointer-events: none;
+        display: block;
+    }
+    
+    .mallet-svg {
+        width: 60px;
+        height: 90px;
+    }
+}
+
+/* Prevent pull-to-refresh and overscroll on mobile */
+html, body {
+    overscroll-behavior: none;
+    touch-action: manipulation;
+}
+
+#game-container {
+    touch-action: none;
+}

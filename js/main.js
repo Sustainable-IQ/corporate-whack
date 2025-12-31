@@ -314,6 +314,46 @@ class CorporateWhack {
             this.handleHit(hitResult);
         });
 
+        // Touch support for mobile
+        document.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            
+            this.mousePosition.x = (touch.clientX / window.innerWidth) * 2 - 1;
+            this.mousePosition.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+            
+            // Update mallet position
+            if (this.malletElement) {
+                this.malletElement.style.left = touch.clientX + 'px';
+                this.malletElement.style.top = touch.clientY + 'px';
+            }
+            
+            if (!this.gameState.isPlaying) return;
+            
+            // Animate mallet swing
+            this.malletElement.classList.add('swinging');
+            setTimeout(() => {
+                this.malletElement.classList.remove('swinging');
+            }, 100);
+
+            // Check for hit
+            const hitResult = this.moleManager.checkHit(this.mousePosition, this.camera);
+            this.handleHit(hitResult);
+        }, { passive: false });
+
+        // Touch move - update mallet position
+        document.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            
+            this.mousePosition.x = (touch.clientX / window.innerWidth) * 2 - 1;
+            this.mousePosition.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+            
+            if (this.malletElement) {
+                this.malletElement.style.left = touch.clientX + 'px';
+                this.malletElement.style.top = touch.clientY + 'px';
+            }
+        }, { passive: true });
+
         // Window resize
         window.addEventListener('resize', () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -435,12 +475,12 @@ class CorporateWhack {
 
     continueGame() {
         document.getElementById('levelup-screen').classList.add('hidden');
-        this.gameState.isPaused = false;  // ADD THIS LINE
+        this.gameState.isPaused = false;
         this.gameState.startLevel();
         this.moleManager.clearAll();
         this.updateHUD();
     }
-ß
+
     restartGame() {
         document.getElementById('gameover-screen').classList.add('hidden');
         document.getElementById('win-screen').classList.add('hidden');
