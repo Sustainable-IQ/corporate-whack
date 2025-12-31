@@ -316,7 +316,6 @@ class CorporateWhack {
 
         // Touch support for mobile
         document.addEventListener('touchstart', (e) => {
-            e.preventDefault();
             const touch = e.touches[0];
             
             this.mousePosition.x = (touch.clientX / window.innerWidth) * 2 - 1;
@@ -328,7 +327,10 @@ class CorporateWhack {
                 this.malletElement.style.top = touch.clientY + 'px';
             }
             
+            // Only prevent default and handle hits during gameplay
             if (!this.gameState.isPlaying) return;
+            
+            e.preventDefault();
             
             // Animate mallet swing
             this.malletElement.classList.add('swinging');
